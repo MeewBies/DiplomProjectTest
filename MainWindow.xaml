@@ -5,8 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DiplomDimaDen"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="250" Width="400">
     <Grid>
-        <TextBlock Text="Здравствуйте"/>    
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock Text="Логин" HorizontalAlignment="Center"/>
+            <TextBox Name="tb_log" Width="100"/>
+            <TextBlock Text="Пароль" HorizontalAlignment="Center"/>
+            <TextBox Name="tb_pas" Width="100"/>
+            <Button Name="Btn_Vhod" Click="Btn_Vhod_Click" Content="Войти" Width="100" Margin="5"/>
+        </StackPanel>  
     </Grid>
 </Window>

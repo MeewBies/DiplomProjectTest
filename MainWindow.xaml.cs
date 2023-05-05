@@ -24,5 +24,31 @@ namespace DiplomDimaDen
         {
             InitializeComponent();
         }
+
+        private void Btn_Vhod_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                int d = 5;
+                DB.NedDB NDB = new DB.NedDB();
+                var users = NDB.Сотрудники.FirstOrDefault(i => i.Логин == tb_log.Text || i.Эл_почта == tb_log.Text && i.Пароль == tb_pas.Text);
+                if (users != null)
+                {
+                    MessageBox.Show("Успешный вход в систему.");
+                }
+                else if(users == null && d < 6)
+                {
+                    MessageBox.Show("Введены неверные данные!");
+                }
+                else
+                {
+                    MessageBox.Show("Блокировка!");
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }      
+        }
     }
 }
