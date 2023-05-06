@@ -8,7 +8,7 @@
         Title="MainWindow" Height="250" Width="400">
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="Логин" HorizontalAlignment="Center"/>
+            <TextBlock Text="Логdин" HorizontalAlignment="Center"/>
             <TextBox Name="tb_log" Width="100"/>
             <TextBlock Text="Пароль" HorizontalAlignment="Center"/>
             <TextBox Name="tb_pas" Width="100"/>
