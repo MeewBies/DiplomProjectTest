@@ -78,5 +78,11 @@ namespace DiplomDimaDen
             Btn_Vhod.IsEnabled = true;
             count = 0;
        }
+
+        private void HLreg_Click(object sender, RoutedEventArgs e)
+        {
+            AccRecovery ARwin = new AccRecovery();
+            ARwin.Show();
+        }
     }
 }

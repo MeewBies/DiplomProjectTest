@@ -1,0 +1,16 @@
+﻿<Window x:Class="DiplomDimaDen.Win_.AccRecovery"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DiplomDimaDen.Win_"
+        mc:Ignorable="d"
+        Title="AccRecovery" Height="150" Width="300">
+    <Grid>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBox Name="tb_rec" Width="100" Height="20"/>
+            <Button Content="Отправить" Name="Btn_rec" Click="Btn_rec_Click" Width="100" Height="20"/>
+        </StackPanel>
+        
+    </Grid>
+</Window>

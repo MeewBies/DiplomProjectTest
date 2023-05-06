@@ -10,14 +10,14 @@
         <ListView Name="LVadmin" d:ItemsSource="{d:SampleData ItemCount=5}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="ID"  DisplayMemberBinding="{Binding Сотрудники.ID}"/>
-                    <GridViewColumn Header="ФИО" DisplayMemberBinding="{Binding Сотрудники.ФИО}"/>
-                    <GridViewColumn Header="Эл.почта" DisplayMemberBinding="{Binding Сотрудники.Эл_почта}"/>
-                    <GridViewColumn Header="Номер телефона" DisplayMemberBinding="{Binding Сотрудники.Номер_телефона}"/>
-                    <GridViewColumn Header="Логин" DisplayMemberBinding="{Binding Сотрудники.Логин}"/>
-                    <GridViewColumn Header="Пароль" DisplayMemberBinding="{Binding Сотрудники.Пароль}"/>
-                    <GridViewColumn Header="Тип" DisplayMemberBinding="{Binding Сотрудники.ID_Тип_сотрудника}"/>
-                    <GridViewColumn Header="Фото" DisplayMemberBinding="{Binding Сотрудники.Изображение}"/>
+                    <GridViewColumn Header="ID"  DisplayMemberBinding="{Binding ID}" Width="auto"/>
+                    <GridViewColumn Header="Фото" DisplayMemberBinding="{Binding Изображение}" Width="200"/>
+                    <GridViewColumn Header="ФИО" DisplayMemberBinding="{Binding ФИО}" Width="auto"/>
+                    <GridViewColumn Header="Эл.почта" DisplayMemberBinding="{Binding Эл_почта}" Width="auto"/>
+                    <GridViewColumn Header="Номер телефона" DisplayMemberBinding="{Binding Номер_телефона}" Width="auto"/>
+                    <GridViewColumn Header="Логин" DisplayMemberBinding="{Binding Логин}" Width="auto"/>
+                    <GridViewColumn Header="Пароль" DisplayMemberBinding="{Binding Пароль}" Width="auto"/>
+                    <GridViewColumn Header="Тип" DisplayMemberBinding="{Binding Тип_сотрудника.Тип}" Width="auto"/>
                 </GridView>
             </ListView.View>
         </ListView>
