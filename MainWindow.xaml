@@ -12,7 +12,7 @@
             <TextBox Name="tb_log" Width="100"/>
             <TextBlock Text="Пароль" HorizontalAlignment="Center"/>
             <TextBox Name="tb_pas" Width="100"/>
-            <Button Name="Btn_Vhod" Click="Btn_Vhod_Click" Content="Войти" Width="100" Margin="5"/>
+            <Button Name="Btn_Vhod" Click="Btn_Vhod_Click" Content="Войти" Width="100" Margin="6"/>
         </StackPanel>  
     </Grid>
 </Window>
