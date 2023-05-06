@@ -5,12 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DiplomDimaDen.Win_"
         mc:Ignorable="d"
-        Title="AccRecovery" Height="150" Width="300">
+        Title="Восстановление аккаунта" Height="125" Width="300">
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBox Name="tb_rec" Width="100" Height="20"/>
-            <Button Content="Отправить" Name="Btn_rec" Click="Btn_rec_Click" Width="100" Height="20"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBox Name="tb_rec" Width="150" Height="20"/>
+                <Button Content="Отправить код" Name="Btn_rec" Click="Btn_rec_Click" Width="90" Height="20" Margin="5"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBox Name="tb_cod" Width="150" Height="20"/>
+                <Button Content="Подтвердить" Name="BtnAcp_ac" Click="BtnAcp_ac_Click" Width="90" Margin="5"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBox Name="tb_izpas" IsEnabled="False" Width="150" Height="20"/>
+                <Button Content="Изменить" Name="BtnEdit_ac" Click="BtnEdit_ac_Click" IsEnabled="False" Width="90" Margin="5"/>
+            </StackPanel>
         </StackPanel>
-        
+
+
     </Grid>
 </Window>

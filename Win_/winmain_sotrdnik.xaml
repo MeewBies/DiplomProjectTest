@@ -7,6 +7,22 @@
         mc:Ignorable="d"
         Title="winmain_sotrdnik" Height="450" Width="800">
     <Grid>
-        
+        <ListView Name="LVsotrdnik" d:ItemsSource="{d:SampleData ItemCount=5}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="ID"  DisplayMemberBinding="{Binding ID}" Width="auto"/>
+                    <GridViewColumn Header="Фото" DisplayMemberBinding="{Binding Изображение}" Width="200"/>
+                    <GridViewColumn Header="ФИО" DisplayMemberBinding="{Binding ФИО}" Width="auto"/>
+                    <GridViewColumn Header="Дата рождения" DisplayMemberBinding="{Binding Дата_рождения, ConverterCulture=ru, StringFormat=D}" Width="auto"/>
+                    <GridViewColumn Header="Группа" DisplayMemberBinding="{Binding Группы.Курс}" Width="auto"/>
+                    <GridViewColumn Header="Группа" DisplayMemberBinding="{Binding Группы.Префикс_группы}" Width="auto"/>
+                    <GridViewColumn Header="Статус" DisplayMemberBinding="{Binding Статус_студента.Статус}" Width="auto"/>
+                    <GridViewColumn Header="Форма обучения" DisplayMemberBinding="{Binding Форма_обучения.Название}" Width="auto"/>
+                    <GridViewColumn Header="Дата зачисления" DisplayMemberBinding="{Binding Дата_зачисления , ConverterCulture=ru, StringFormat=D}" Width="auto"/>
+                    <GridViewColumn Header="Дата выбытия" DisplayMemberBinding="{Binding Дата_выбытия, ConverterCulture=ru, StringFormat=D}" Width="auto"/>
+                    <GridViewColumn Header="Номер телефона" DisplayMemberBinding="{Binding Номер_телефона}" Width="auto"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Window>

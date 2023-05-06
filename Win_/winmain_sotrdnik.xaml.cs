@@ -22,6 +22,8 @@ namespace DiplomDimaDen.Win_
         public winmain_sotrdnik()
         {
             InitializeComponent();
+            DB.NedDB NDB = new DB.NedDB();
+            LVsotrdnik.ItemsSource = NDB.Студенты.ToList();
         }
     }
 }
