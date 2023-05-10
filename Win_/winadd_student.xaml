@@ -1,0 +1,60 @@
+﻿<Window x:Class="DiplomDimaDen.Win_.winadd_student"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DiplomDimaDen.Win_"
+        mc:Ignorable="d"
+        Title="winadd_student" Height="450" Width="800">
+    <Grid>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Width="85" Height="25" Text="ФИО студента :"/>
+                <TextBox Width="150" Height="25" />
+                <TextBlock Width="95" Height="25" Text="Дата рождения :"/>
+                <DatePicker Height="25" Width="100"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Width="50" Height="25" Text="Группа :"/>
+                <ComboBox SelectedIndex="0" Name="CB_group" SelectionChanged="ComboBox_SelectionChanged" Width="125">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{} {0} {1}-{2}">
+                                        <Binding Path="Курс"/>
+                                        <Binding Path="Специальности.Сокращение"/>
+                                        <Binding Path="Префикс_группы"/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <TextBlock Width="45" Height="25" Text="Статус :"/>
+                <ComboBox Name="CB_status" SelectionChanged="CB_status_SelectionChanged" Width="125"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Width="105" Height="25" Text="Форма обучения :"/>
+                <ComboBox Name="CB_forma" SelectionChanged="CB_forma_SelectionChanged" DisplayMemberPath="Title" Width="125"/>
+                <TextBlock Width="105" Height="25" Text="Номер телефона :"/>
+                <TextBox Width="125"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Width="105" Height="25" Text="Дата зачисления :"/>
+                <DatePicker Width="125"/>
+                <TextBlock Width="90" Height="25" Text="Дата выбытия :"/>
+                <DatePicker Width="125"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Width="90" Height="25" Text="Изображение :"/>
+                <TextBox Width="190"/>
+                <Button x:Name="Btn_Pick" Click="Btn_Pick_Click" Width="60" Content="Выбрать"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

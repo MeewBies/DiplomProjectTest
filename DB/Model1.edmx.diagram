@@ -4,26 +4,25 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="64162b73adad4f61b7f16737a6b97842" Name="Diagram1">
-        <EntityTypeShape EntityType="NedvizimostModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="NedvizimostModel.Группы" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="NedvizimostModel.Заявки" Width="1.5" PointX="6" PointY="4.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="NedvizimostModel.Преподаватель" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="NedvizimostModel.Сотрудники" Width="1.5" PointX="11" PointY="9.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="NedvizimostModel.Специальности" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="NedvizimostModel.Статус_заявки" Width="1.5" PointX="3.75" PointY="1.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="NedvizimostModel.Статус_студента" Width="1.5" PointX="6" PointY="2" IsExpanded="true" />
-        <EntityTypeShape EntityType="NedvizimostModel.Студенты" Width="1.5" PointX="8.25" PointY="4.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="NedvizimostModel.Тип_сотрудника" Width="1.5" PointX="8.875" PointY="9.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="NedvizimostModel.Форма_обучения" Width="1.5" PointX="6" PointY="8.375" IsExpanded="true" />
-        <AssociationConnector Association="NedvizimostModel.FK_Группы_Преподаватель" ManuallyRouted="false" />
-        <AssociationConnector Association="NedvizimostModel.FK_Группы_Специальности" ManuallyRouted="false" />
-        <AssociationConnector Association="NedvizimostModel.FK_Студенты_Группы" ManuallyRouted="false" />
-        <AssociationConnector Association="NedvizimostModel.FK_Заявки_Специальности" ManuallyRouted="false" />
-        <AssociationConnector Association="NedvizimostModel.FK_Заявки_Статус_заявки" ManuallyRouted="false" />
-        <AssociationConnector Association="NedvizimostModel.FK_Сотрудники_Тип_сотрудника" ManuallyRouted="false" />
-        <AssociationConnector Association="NedvizimostModel.FK_Студенты_Статус_студента" ManuallyRouted="false" />
-        <AssociationConnector Association="NedvizimostModel.FK_Студенты_Форма_обучения" ManuallyRouted="false" />
+      <Diagram DiagramId="5d37a900ad7b489e847bf60eecbc4966" Name="Diagram1">
+        <EntityTypeShape EntityType="NedvizivostModel.Группы" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="NedvizivostModel.Заявки" Width="1.5" PointX="6" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="NedvizivostModel.Преподаватель" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NedvizivostModel.Сотрудники" Width="1.5" PointX="11" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="NedvizivostModel.Специальности" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="NedvizivostModel.Статус_заявки" Width="1.5" PointX="3.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="NedvizivostModel.Статус_студента" Width="1.5" PointX="6" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="NedvizivostModel.Студенты" Width="1.5" PointX="8.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="NedvizivostModel.Тип_сотрудника" Width="1.5" PointX="8.75" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="NedvizivostModel.Форма_обучения" Width="1.5" PointX="6" PointY="8.375" IsExpanded="true" />
+        <AssociationConnector Association="NedvizivostModel.FK_Группы_Преподаватель" ManuallyRouted="false" />
+        <AssociationConnector Association="NedvizivostModel.FK_Группы_Специальности" ManuallyRouted="false" />
+        <AssociationConnector Association="NedvizivostModel.FK_Студенты_Группы" ManuallyRouted="false" />
+        <AssociationConnector Association="NedvizivostModel.FK_Заявки_Специальности" ManuallyRouted="false" />
+        <AssociationConnector Association="NedvizivostModel.FK_Заявки_Статус_заявки" ManuallyRouted="false" />
+        <AssociationConnector Association="NedvizivostModel.FK_Сотрудники_Тип_сотрудника" ManuallyRouted="false" />
+        <AssociationConnector Association="NedvizivostModel.FK_Студенты_Статус_студента" ManuallyRouted="false" />
+        <AssociationConnector Association="NedvizivostModel.FK_Студенты_Форма_обучения" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

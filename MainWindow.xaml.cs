@@ -36,7 +36,8 @@ namespace DiplomDimaDen
             try
             {
                 DB.NedDB NDB = new DB.NedDB();
-                var users = NDB.Сотрудники.FirstOrDefault(i => i.Логин == tb_log.Text || i.Эл_почта == tb_log.Text && i.Пароль == tb_pas.Text);
+                var users = NDB.Сотрудники.FirstOrDefault(i => i.Логин == tb_log.Text ||
+                i.Эл_почта == tb_log.Text && i.Пароль == tb_pas.Text);
                 if (users != null)
                 {
                     if(users.ID_Тип_сотрудника == 1)

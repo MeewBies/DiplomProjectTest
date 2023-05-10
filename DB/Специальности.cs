@@ -24,6 +24,7 @@ namespace DiplomDimaDen.DB
         public int ID { get; set; }
         public string Модуль { get; set; }
         public string Название { get; set; }
+        public string Сокращение { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Группы> Группы { get; set; }

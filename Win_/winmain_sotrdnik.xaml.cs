@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DiplomDimaDen.DB;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data.Entity;
 
 namespace DiplomDimaDen.Win_
 {
@@ -22,8 +24,46 @@ namespace DiplomDimaDen.Win_
         public winmain_sotrdnik()
         {
             InitializeComponent();
-            DB.NedDB NDB = new DB.NedDB();
+            NedDB NDB = new NedDB();
             LVsotrdnik.ItemsSource = NDB.Студенты.ToList();
+        }
+
+        private void Btn_Del_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (MessageBox.Show($"Действительно хотите удалить данные?",
+                "Внимание", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                {
+                    NedDB NDB = new DB.NedDB();
+                    int removeId = (LVsotrdnik.SelectedItem as Студенты).ID;
+                    var removeStudent = NDB.Студенты.FirstOrDefault(i => i.ID == removeId);
+                    NDB.Студенты.Remove(removeStudent);
+                    NDB.SaveChanges();
+                    MessageBox.Show("Данные удалены!");
+
+                    LVsotrdnik.ItemsSource = NDB.Студенты.ToList();
+                }
+                else
+                {
+                    MessageBox.Show("Ошибка.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+        }
+
+        private void Btn_Edit_Click(object sender, RoutedEventArgs e)
+        {
+            //Manager.MainFrame.Navigate(new Page());
+        }
+
+        private void LVsotrdnik_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            winadd_student winst = new winadd_student();
+            winst.Show();
         }
     }
 }
