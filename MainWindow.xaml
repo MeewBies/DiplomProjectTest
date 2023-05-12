@@ -12,7 +12,7 @@
             <TextBox Name="tb_log" Width="100"/>
             <TextBlock Text="Пароль" HorizontalAlignment="Center"/>
             <TextBox Name="tb_pas" Width="100"/>
-            <Button Name="Btn_Vhod" Click="Btn_Vhod_Click" Content="Войти" Width="100" Margin="6"/>
+            <Button Name="Btn_Vhod" Click="Btn_Vhod_Click" Content="Вsойти" Width="100" Margin="6"/>
             <Label>
                 <Hyperlink Name="HLreg" Click="HLreg_Click">
                     Восстановить  пароль
