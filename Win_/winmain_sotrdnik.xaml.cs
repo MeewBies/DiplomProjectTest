@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Data.Entity;
+using System.Diagnostics.Contracts;
 
 namespace DiplomDimaDen.Win_
 {
@@ -62,8 +63,19 @@ namespace DiplomDimaDen.Win_
 
         private void LVsotrdnik_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            winadd_student winst = new winadd_student();
-            winst.Show();
+            NedDB NDB = new DB.NedDB();
+            int removeID = (LVsotrdnik.SelectedItem as Студенты).ID;
+            var removeStud = NDB.Студенты.FirstOrDefault(i => i.ID == removeID);
+            if(removeStud != null) 
+            {
+                studClass.studID = removeStud.ID;
+                winadd_student winst = new winadd_student();
+                winst.Show();
+            }
+            else
+            {
+                MessageBox.Show("Ошибка!");
+            }        
         }
     }
 }
