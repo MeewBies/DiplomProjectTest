@@ -5,6 +5,16 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="Хранилище NedvizivostModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
         <EntityType Name="Группы">
           <Key>
             <PropertyRef Name="ID" />
@@ -94,7 +104,7 @@
           <Property Name="Дата_зачисления" Type="date" />
           <Property Name="Дата_выбытия" Type="date" />
           <Property Name="Номер_телефона" Type="nvarchar(max)" />
-          <Property Name="Изображение" Type="nvarchar(max)" />
+          <Property Name="Изображение" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Тип_сотрудника">
           <Key>
@@ -207,6 +217,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="Хранилище NedvizivostModelContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Группы" EntityType="Self.Группы" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Заявки" EntityType="Self.Заявки" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Преподаватель" EntityType="Self.Преподаватель" Schema="dbo" store:Type="Tables" />
@@ -255,6 +266,16 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="NedvizivostModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
         <EntityType Name="Группы">
           <Key>
             <PropertyRef Name="ID" />
@@ -355,7 +376,7 @@
           <Property Name="Дата_зачисления" Type="DateTime" Precision="0" />
           <Property Name="Дата_выбытия" Type="DateTime" Precision="0" />
           <Property Name="Номер_телефона" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="Изображение" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Изображение" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="Группы" Relationship="Self.FK_Студенты_Группы" FromRole="Студенты" ToRole="Группы" />
           <NavigationProperty Name="Статус_студента" Relationship="Self.FK_Студенты_Статус_студента" FromRole="Студенты" ToRole="Статус_студента" />
           <NavigationProperty Name="Форма_обучения" Relationship="Self.FK_Студенты_Форма_обучения" FromRole="Студенты" ToRole="Форма_обучения" />
@@ -473,6 +494,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="NedDB" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Группы" EntityType="Self.Группы" />
           <EntitySet Name="Заявки" EntityType="Self.Заявки" />
           <EntitySet Name="Преподаватель" EntityType="Self.Преподаватель" />
@@ -522,6 +544,17 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="Хранилище NedvizivostModelContainer" CdmEntityContainer="NedDB">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="NedvizivostModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Группы">
             <EntityTypeMapping TypeName="NedvizivostModel.Группы">
               <MappingFragment StoreEntitySet="Группы">

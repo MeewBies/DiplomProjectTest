@@ -25,6 +25,7 @@ namespace DiplomDimaDen.DB
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Группы> Группы { get; set; }
         public virtual DbSet<Заявки> Заявки { get; set; }
         public virtual DbSet<Преподаватель> Преподаватель { get; set; }

@@ -13,8 +13,9 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using System.IO;
+using System.Reflection;
+using System.Resources;
 
 namespace DiplomDimaDen.Win_
 {
@@ -39,22 +40,57 @@ namespace DiplomDimaDen.Win_
             Img_photo.Source = new BitmapImage(new Uri(path));
         }
 
+        private void AddResource(string resourceName, byte[] imageBytes)
+        {
+            // Создание менеджера ресурсов
+            ResourceManager resourceManager = new ResourceManager("MyNamespace.MyResourceFile", Assembly.GetExecutingAssembly());
+
+            // Сохранение ресурса
+            using (ResourceWriter resourceWriter = new ResourceWriter("MyResourceFile.resx"))
+            {
+                resourceWriter.AddResource(resourceName, imageBytes);
+                resourceWriter.Generate();
+            }
+        }
+
         private void Btn_Pick_Click(object sender, RoutedEventArgs e)
         {
             try
             {
                 OpenFileDialog fileDialog = new OpenFileDialog();
                 fileDialog.Filter = "Image files (*.JPG, *.PNG)|*.jpg;*.png*";
-                string fileName = "";
+
                 if (fileDialog.ShowDialog() == true)
                 {
-                    fileName = fileDialog.FileName;
+                    string fileName = fileDialog.FileName;
+                    string fullName = Path.GetFileName(fileName);
+
                     Img_photo.Source = new BitmapImage(new Uri(fileName));
+                    MessageBox.Show(fileName);
+
+                    string path = Path.Combine(Environment.CurrentDirectory, "Images", "Student", fullName);
+
+                    // Копирование файла в папку проекта
+                    File.Copy(fileName, path);
+
+                    // Загрузка изображения
+                    BitmapImage bitmapImage = new BitmapImage();
+                    bitmapImage.BeginInit();
+                    bitmapImage.UriSource = new Uri(path);
+                    bitmapImage.EndInit();
+
+                    // Конвертация BitmapImage в byte[]
+                    byte[] imageBytes;
+                    JpegBitmapEncoder encoder = new JpegBitmapEncoder();
+                    encoder.Frames.Add(BitmapFrame.Create(bitmapImage));
+                    using (MemoryStream ms = new MemoryStream())
+                    {
+                        encoder.Save(ms);
+                        imageBytes = ms.ToArray();
+                    }
+
+                    AddResource(fullName, imageBytes);
                 }
-                MessageBox.Show(fileName);
-                string path = Environment.CurrentDirectory + $@"\Images\Student\trash.png";
-                File.Copy(fileName, path);
-                TB_photo.Text = fileName;
             }
             catch (Exception ex)
             {

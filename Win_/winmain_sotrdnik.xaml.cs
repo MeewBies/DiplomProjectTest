@@ -27,6 +27,8 @@ namespace DiplomDimaDen.Win_
             InitializeComponent();
             NedDB NDB = new NedDB();
             LVsotrdnik.ItemsSource = NDB.Студенты.ToList();
+
+
         }
 
         private void Btn_Del_Click(object sender, RoutedEventArgs e)
