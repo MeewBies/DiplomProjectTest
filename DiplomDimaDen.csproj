@@ -120,6 +120,7 @@
     <Compile Include="DB\Форма_обучения.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="EditClass.cs" />
     <Compile Include="studClass.cs" />
     <Compile Include="Win_\AccRecovery.xaml.cs">
       <DependentUpon>AccRecovery.xaml</DependentUpon>
@@ -132,6 +133,9 @@
     </Compile>
     <Compile Include="Win_\winmain_sotrdnik.xaml.cs">
       <DependentUpon>winmain_sotrdnik.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Win_\winRealaddStud.xaml.cs">
+      <DependentUpon>winRealaddStud.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -158,6 +162,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Win_\winmain_sotrdnik.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Win_\winRealaddStud.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

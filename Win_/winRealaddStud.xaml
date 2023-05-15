@@ -1,11 +1,11 @@
-﻿<Window x:Class="DiplomDimaDen.Win_.winadd_student"
+﻿<Window x:Class="DiplomDimaDen.Win_.winRealaddStud"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DiplomDimaDen.Win_"
         mc:Ignorable="d"
-        Title="winadd_student" Height="450" Width="800">
+        Title="winRealaddStud" Height="450" Width="800">
     <Grid>
         <StackPanel>
             <StackPanel Orientation="Horizontal">
@@ -51,11 +51,12 @@
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
-                <Button x:Name="Btn_Pick" Click="Btn_Pick_Click" Width="60" Content="Изменить"/>
+                <Button x:Name="Btn_Pick" Click="Btn_Pick_Click" Width="60" Content="Добавить"/>
             </StackPanel>
-            
+
             <Image x:Name="Img_photo" Width="100" Height="100"/>
-            
+
         </StackPanel>
     </Grid>
 </Window>
+

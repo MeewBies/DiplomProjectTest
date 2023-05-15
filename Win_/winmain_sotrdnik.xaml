@@ -18,11 +18,13 @@
             </ComboBox>
 
             <StackPanel Orientation="Horizontal">
-                <TextBox x:Name="tb_search"  Width="150" Height="25" Margin="5"/>
-                <Button Width="25" Height="25"/>
+                <TextBox TextChanged="tb_search_TextChanged" x:Name="tb_search"  Width="150" Height="25" Margin="5"/>
+                <Button x:Name="refresh" Width="25" Height="25" Click="refresh_Click"/>
             </StackPanel>
-            
-            
+
+            <Button Name="Btn_add" Click="Btn_add_Click" Content="Добавить" Width="100" Height="25"/>
+
+
         </StackPanel>
         
         
@@ -58,13 +60,6 @@
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <Button x:Name="Btn_Del" Click="Btn_Del_Click" Width="auto" Content="Удалить"/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                    <GridViewColumn>
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <Button x:Name="Btn_Edit" Click="Btn_Edit_Click" Width="auto" Content="Редактировать"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

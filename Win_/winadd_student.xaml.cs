@@ -25,19 +25,26 @@ namespace DiplomDimaDen.Win_
     public partial class winadd_student : Window
     {
 
+        public static NedDB con = new NedDB();
         public winadd_student()
         {
             InitializeComponent();
-            var NBD = new NedDB();
-            CB_group.ItemsSource = NBD.Группы.ToList();
-            CB_status.ItemsSource = NBD.Статус_студента.ToList();
-            CB_forma.ItemsSource = NBD.Форма_обучения.ToList();
+            var stud = con.Студенты.FirstOrDefault(i => i.ID == studClass.studID);  // студент для привязки данных
+            Img_photo.Source = stud._Контент;
+            CB_group.ItemsSource = con.Группы.ToList();
+            CB_group.SelectedItem = stud.Группы;
+            CB_status.ItemsSource = con.Статус_студента.ToList();
+            CB_status.SelectedItem = stud.Статус_студента;
+            CB_forma.ItemsSource = con.Форма_обучения.ToList();
+            CB_forma.SelectedItem = stud.Форма_обучения;
+            DP_Birthhday.SelectedDate = stud.Дата_рождения;
+            TB_telefon.Text = stud.Номер_телефона;
+            DP_datezacis.SelectedDate = stud.Дата_зачисления;
+            DP_datevibit.SelectedDate = stud.Дата_выбытия;
+            TB_FIO.Text = stud.ФИО;
 
-            var stud = new Студенты();
-            stud = NBD.Студенты.FirstOrDefault(i => i.ID == studClass.studID);
-            string path = Environment.CurrentDirectory + "//" + stud.Изображение;
-            MessageBox.Show(path);
-            Img_photo.Source = new BitmapImage(new Uri(path));
+
+
         }
 
         private void AddResource(string resourceName, byte[] imageBytes)
@@ -57,44 +64,24 @@ namespace DiplomDimaDen.Win_
         {
             try
             {
-                OpenFileDialog fileDialog = new OpenFileDialog();
-                fileDialog.Filter = "Image files (*.JPG, *.PNG)|*.jpg;*.png*";
+                var stud = con.Студенты.FirstOrDefault(i => i.ID == studClass.studID);  // студент для привязки данных
 
-                if (fileDialog.ShowDialog() == true)
-                {
-                    string fileName = fileDialog.FileName;
-                    string fullName = Path.GetFileName(fileName);
+                stud.ID_Группы = ((DB.Группы)CB_group.SelectedItem).ID;
+                stud.ID_Форма_обучения = ((DB.Форма_обучения)CB_forma.SelectedItem).ID;
+                stud.ID_Статус_студента = ((DB.Статус_студента)CB_status.SelectedItem).ID;
 
-                    Img_photo.Source = new BitmapImage(new Uri(fileName));
-                    MessageBox.Show(fileName);
-
-                    string path = Path.Combine(Environment.CurrentDirectory, "Images", "Student", fullName);
-
-                    // Копирование файла в папку проекта
-                    File.Copy(fileName, path);
-
-                    // Загрузка изображения
-                    BitmapImage bitmapImage = new BitmapImage();
-                    bitmapImage.BeginInit();
-                    bitmapImage.UriSource = new Uri(path);
-                    bitmapImage.EndInit();
-
-                    // Конвертация BitmapImage в byte[]
-                    byte[] imageBytes;
-                    JpegBitmapEncoder encoder = new JpegBitmapEncoder();
-                    encoder.Frames.Add(BitmapFrame.Create(bitmapImage));
-                    using (MemoryStream ms = new MemoryStream())
-                    {
-                        encoder.Save(ms);
-                        imageBytes = ms.ToArray();
-                    }
-
-                    AddResource(fullName, imageBytes);
-                }
+                stud.Дата_рождения = DP_Birthhday.SelectedDate;
+                stud.Номер_телефона = TB_telefon.Text;
+                stud.Дата_зачисления = DP_datezacis.SelectedDate;
+                stud.Дата_выбытия = DP_datevibit.SelectedDate;
+                stud.ФИО = TB_FIO.Text;
+                con.SaveChanges();
+                NedDB NDB = new NedDB();
+                //LVsotrdnik.ItemsSource = NDB.Студенты.ToList();
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
-                MessageBox.Show(ex.Message.ToString());
+                MessageBox.Show("Ошибка", ex.Message);
             }
         }
 
