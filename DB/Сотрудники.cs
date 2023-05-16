@@ -11,7 +11,9 @@ namespace DiplomDimaDen.DB
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.IO;
+    using System.Windows.Media.Imaging;
+
     public partial class Сотрудники
     {
         public int ID { get; set; }
@@ -21,7 +23,7 @@ namespace DiplomDimaDen.DB
         public string Логин { get; set; }
         public string Пароль { get; set; }
         public Nullable<int> ID_Тип_сотрудника { get; set; }
-        public string Изображение { get; set; }
+        public byte[] Изображение { get; set; }
     
         public virtual Тип_сотрудника Тип_сотрудника { get; set; }
     }

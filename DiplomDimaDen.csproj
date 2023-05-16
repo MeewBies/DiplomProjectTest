@@ -87,9 +87,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
-    <Compile Include="DB\sysdiagrams.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="DB\Группы.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -121,6 +118,7 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="EditClass.cs" />
+    <Compile Include="SotClass.cs" />
     <Compile Include="studClass.cs" />
     <Compile Include="Win_\AccRecovery.xaml.cs">
       <DependentUpon>AccRecovery.xaml</DependentUpon>

@@ -4,8 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="8ba620616cc942fa8251db5ceccafc6a" Name="Diagram1">
-        <EntityTypeShape EntityType="NedvizivostModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
+      <Diagram DiagramId="528117c6dd9740b2a8dcce4c6576608e" Name="Diagram1">
         <EntityTypeShape EntityType="NedvizivostModel.Группы" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
         <EntityTypeShape EntityType="NedvizivostModel.Заявки" Width="1.5" PointX="6" PointY="4.5" IsExpanded="true" />
         <EntityTypeShape EntityType="NedvizivostModel.Преподаватель" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />

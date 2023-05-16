@@ -26,7 +26,7 @@ namespace DiplomDimaDen.DB
         public Nullable<System.DateTime> Дата_выбытия { get; set; }
         public string Номер_телефона { get; set; }
         public byte[] Изображение { get; set; }
-    
+
         public virtual Группы Группы { get; set; }
         public virtual Статус_студента Статус_студента { get; set; }
         public virtual Форма_обучения Форма_обучения { get; set; }
@@ -53,5 +53,7 @@ namespace DiplomDimaDen.DB
             }
             set { }
         }
+
+
     }
 }

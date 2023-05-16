@@ -42,15 +42,17 @@ namespace DiplomDimaDen
                 {
                     if(users.ID_Тип_сотрудника == 1)
                     {
-                        MessageBox.Show("Успешный вход в систему. (Администратор)");
+                        MessageBox.Show("Успешный вход как Администратор.");
                         winmain_admin WinAd = new winmain_admin();
-                            WinAd.Show();
+                        SotClass.SotID = users.ID;
+                        WinAd.Show();
                         Close();
                     }
                     else
                     {
-                        MessageBox.Show("Успешный вход в систему. (Сотрудник)");
+                        MessageBox.Show("Успешный вход как Сотрудник.");
                         winmain_sotrdnik WinSot = new winmain_sotrdnik();
+                        SotClass.SotID = users.ID;
                         WinSot.Show();
                         Close();
                     }    
@@ -63,6 +65,7 @@ namespace DiplomDimaDen
                     {
                         Btn_Vhod.IsEnabled = false;
                         Pimer.Start();
+                        Btn_Vhod.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#FFFF8074");
                         MessageBox.Show("Превышен лимит входа. Повторите попытку позже.");
                     }
                }
@@ -76,6 +79,7 @@ namespace DiplomDimaDen
        private void _Tick(object sender, EventArgs e)
         {
             Pimer.Stop();
+            Btn_Vhod.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#FFC8F9A7");
             Btn_Vhod.IsEnabled = true;
             count = 0;
        }

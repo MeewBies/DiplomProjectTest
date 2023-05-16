@@ -4,6 +4,40 @@
              xmlns:local="clr-namespace:DiplomDimaDen"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style x:Key="TextBoxWithHint" TargetType="{x:Type TextBox}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Grid>
+                            <TextBox x:Name="PART_TextBox"
+                             Text="{TemplateBinding Text}"
+                             Background="{TemplateBinding Background}"
+                             BorderBrush="{TemplateBinding BorderBrush}"
+                             BorderThickness="{TemplateBinding BorderThickness}"
+                             Padding="{TemplateBinding Padding}"/>
+                            <TextBlock Text="Поиск . . ."
+                               Foreground="Gray"
+                               Margin="5,0,0,0"
+                               x:Name="HintText"
+                               Visibility="Collapsed"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <DataTrigger Binding="{Binding Text, RelativeSource={RelativeSource Self}}"
+                                 Value="">
+                                <Setter TargetName="HintText"
+                                Property="Visibility"
+                                Value="Visible"/>
+                            </DataTrigger>
+                            <Trigger Property="IsFocused"
+                             Value="True">
+                                <Setter TargetName="HintText"
+                                Property="Visibility"
+                                Value="Collapsed"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Application.Resources>
 </Application>

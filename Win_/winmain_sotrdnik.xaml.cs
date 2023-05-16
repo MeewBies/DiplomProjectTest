@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.Data.Entity;
 using System.Diagnostics.Contracts;
 using System.Windows.Media.Media3D;
+using System.IO;
 
 namespace DiplomDimaDen.Win_
 {
@@ -28,7 +29,7 @@ namespace DiplomDimaDen.Win_
             InitializeComponent();
             NedDB NDB = new NedDB();
             LVsotrdnik.ItemsSource = NDB.Студенты.ToList();
-
+            CB_filtr.ItemsSource = NDB.Группы.ToList();
         }
 
         private void Btn_Del_Click(object sender, RoutedEventArgs e)
@@ -116,6 +117,88 @@ namespace DiplomDimaDen.Win_
         {
             NedDB NDB = new NedDB();
             LVsotrdnik.ItemsSource = NDB.Студенты.ToList();
+        }
+
+        private void TB_name_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            NedDB NDB = new NedDB();
+            if ((bool)e.NewValue == true)
+            {
+                SotClass sot = TB_name.DataContext as SotClass;
+
+                if (SotClass.SotID != 0)
+                {
+                    using (NedDB db = new NedDB())
+                    {
+                        var sotrudnik = NDB.Сотрудники.FirstOrDefault(s => s.ID == SotClass.SotID);
+                        if (sotrudnik != null)
+                        {
+                            TB_name.Text = sotrudnik.ФИО;
+                        }
+                        else
+                        {
+                            TB_name.Text = "Сотрудник не найден";
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Errr");
+                }
+            }
+        }
+
+        private BitmapImage GetImageSourceFromContent(byte[] Изображение)
+        {
+            if (Изображение == null)
+                return null;
+
+            using (MemoryStream ms = new MemoryStream(Изображение))
+            {
+                try
+                {
+                    BitmapImage bitmap = new BitmapImage();
+                    bitmap.BeginInit();
+                    bitmap.CacheOption = BitmapCacheOption.OnLoad;
+                    bitmap.StreamSource = ms;
+                    bitmap.EndInit();
+                    return bitmap;
+                }
+                catch (Exception ex)
+                {
+                    // обработка ошибок при загрузке изображения
+                    return null;
+                }
+            }
+        }
+
+        private void I_sot_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            NedDB NDB = new NedDB();
+            if ((bool)e.NewValue == true)
+            {
+                SotClass sot = TB_name.DataContext as SotClass;
+
+                if (SotClass.SotID != 0)
+                {
+                    using (NedDB db = new NedDB())
+                    {
+                        var sotrudnik = NDB.Сотрудники.FirstOrDefault(s => s.ID == SotClass.SotID);
+                        if (sotrudnik != null)
+                        {
+                            I_sot.Source = GetImageSourceFromContent(sotrudnik.Изображение);
+                        }
+                        else
+                        {
+                            TB_name.Text = "Сотрудник не найден";
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Errr");
+                }
+            }
         }
     }
 }
