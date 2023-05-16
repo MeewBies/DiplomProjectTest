@@ -4,17 +4,19 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="winmain_sotrdnik" Height="450" Width="1000">
+        Title="Окно сотрудника" Height="450" Width="1000" Icon="/Icon/Iconca.png">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="800"/>
         </Grid.ColumnDefinitions>
 
+        <Button Content="Выйти из аккаунта" Height="20" Width="120" HorizontalAlignment="Left" Background="#FFFF8074" VerticalAlignment="Top" Margin="5"/>
+        
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-
+         
             <TextBlock HorizontalAlignment="Center" Name="TB_prt" Text="Здравствуйте," Height="25" Width="80" Margin="5"/>
-            <TextBlock Name="TB_name" IsVisibleChanged="TB_name_IsVisibleChanged" Height="25" Width="180" Margin="5"/>
+            <TextBlock Name="TB_name" IsVisibleChanged="TB_name_IsVisibleChanged" HorizontalAlignment="Center" TextAlignment="Center" Height="25" Width="180" Margin="5"/>
             <Image Width="150" Height="150" Name="I_sot" IsVisibleChanged="I_sot_IsVisibleChanged" Margin="10"/>
 
             <StackPanel Orientation="Horizontal">
@@ -40,7 +42,7 @@
                 <Button x:Name="refresh" Content="↻" FontSize="15" Width="25" Height="25" Click="refresh_Click" FontWeight="Bold"/>
             </StackPanel>
 
-            <Button Name="Btn_add" Click="Btn_add_Click" Content="Добавить студента" Width="180" Height="25" Margin="5"/>
+            <Button Name="Btn_add" Background="#FFC8F9A7" Click="Btn_add_Click" Content="Добавить студента" Width="180" Height="25" Margin="5"/>
 
 
         </StackPanel>

@@ -5,19 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DiplomDimaDen.Win_"
         mc:Ignorable="d"
-        Title="winadd_student" Height="450" Width="800">
+        Title="Добавление студента" Height="250" Width="800" Icon="/Icon/Iconca.png">
     <Grid>
-        <StackPanel>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="500"/>
+            <ColumnDefinition Width="300"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
             <StackPanel Orientation="Horizontal">
                 <TextBlock Width="85" Height="25" Text="ФИО студента :"/>
-                <TextBox x:Name="TB_FIO" Width="150" Height="25" />
+                <TextBox x:Name="TB_FIO" Width="150" Height="25" Margin="10"/>
                 <TextBlock Width="95" Height="25" Text="Дата рождения :"/>
-                <DatePicker Name="DP_Birthhday" Height="25" Width="100"/>
+                <DatePicker Name="DP_Birthhday" Height="25" Width="105"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
                 <TextBlock Width="50" Height="25" Text="Группа :"/>
-                <ComboBox SelectedIndex="0" Name="CB_group" SelectionChanged="ComboBox_SelectionChanged" Width="125">
+                <ComboBox SelectedIndex="0" Name="CB_group" SelectionChanged="ComboBox_SelectionChanged" Width="170" Height="25" Margin="10">
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
                             <TextBlock>
@@ -33,29 +39,29 @@
                     </ComboBox.ItemTemplate>
                 </ComboBox>
                 <TextBlock Width="45" Height="25" Text="Статус :"/>
-                <ComboBox Name="CB_status" DisplayMemberPath="Статус" SelectedIndex="0" SelectionChanged="CB_status_SelectionChanged" Width="125"/>
+                <ComboBox Name="CB_status" DisplayMemberPath="Статус" Height="25" SelectedIndex="0" SelectionChanged="CB_status_SelectionChanged" Width="170"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
                 <TextBlock Width="105" Height="25" Text="Форма обучения :"/>
-                <ComboBox Name="CB_forma" DisplayMemberPath="Название" SelectedIndex="0" SelectionChanged="CB_forma_SelectionChanged" Width="125"/>
+                <ComboBox Name="CB_forma" DisplayMemberPath="Название" SelectedIndex="0" Height="25" SelectionChanged="CB_forma_SelectionChanged" Width="100" Margin="10"/>
                 <TextBlock Width="105" Height="25" Text="Номер телефона :"/>
-                <TextBox Name="TB_telefon" Width="125"/>
+                <TextBox Name="TB_telefon" Width="125" Height="25"/>
             </StackPanel>
 
             <StackPanel Orientation="Horizontal">
                 <TextBlock Width="105" Height="25" Text="Дата зачисления :"/>
-                <DatePicker Name="DP_datezacis" Width="125"/>
+                <DatePicker Name="DP_datezacis" Width="120" Margin="10"/>
                 <TextBlock Width="90" Height="25" Text="Дата выбытия :"/>
-                <DatePicker Name="DP_datevibit" Width="125"/>
+                <DatePicker Name="DP_datevibit" Width="120" Height="25"/>
             </StackPanel>
-
-            <StackPanel Orientation="Horizontal">
-                <Button x:Name="Btn_Pick" Click="Btn_Pick_Click" Width="60" Content="Изменить"/>
-            </StackPanel>
-            
-            <Image x:Name="Img_photo" Width="100" Height="100"/>
-            
         </StackPanel>
+
+        <Grid Grid.Column="1" Background="#FFEEEEEE">
+            <StackPanel Orientation="Vertical" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button x:Name="Btn_Pick" Click="Btn_Pick_Click" Width="150" Content="Изменить изображение"/>
+                <Image x:Name="Img_photo" Width="150" Height="150"/>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>
